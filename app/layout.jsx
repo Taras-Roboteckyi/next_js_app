@@ -1,4 +1,4 @@
-import "@styles/globals.css";
+import "@styles/global.css";
 import { Html } from "next/document";
 import { Children } from "react";
 
@@ -14,6 +14,7 @@ const RootLayout = ({ children }) => {
         <div className="main">
           <div className="gradient" />
         </div>
+
         <main className="app">{children}</main>
       </body>
     </html>
