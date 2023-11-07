@@ -1,6 +1,4 @@
 import "@styles/global.css";
-import { Html } from "next/document";
-import { Children } from "react";
 
 export const metadata = {
   title: "Promptopia",
