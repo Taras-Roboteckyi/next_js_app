@@ -11,6 +11,7 @@ const Nav = () => {
   const isUserLoggedIn = true;
 
   const [providers, setProviders] = useState(null);
+  const [toggleDropdown, setToggleDropdown] = useState(false);
 
   useEffect(() => {
     const setProviders = async () => {
@@ -19,7 +20,7 @@ const Nav = () => {
     };
     setProviders(); //Це дозволить увійти за допомогою Google і аунтифікації
   }, []);
-
+  console.log(toggleDropdown);
   return (
     <nav className="flex-between w-full mb-16 pt-3">
       <Link href="/" className="flex gap-2 flex-center">
@@ -73,6 +74,46 @@ const Nav = () => {
       </div>
 
       {/* Mobile navigation */}
+      <div className="sm:hidden flex: relative">
+        {isUserLoggedIn ? (
+          <div className="flex">
+            <Image
+              src={Logo}
+              alt="profile"
+              width={37}
+              height={37}
+              className="rounded-full"
+              onClick={() => setToggleDropdown((prev) => !prev)}
+            />
+
+            {toggleDropdown && (
+              <div className="dropdown">
+                <Link
+                  href="/profile"
+                  className="dropdown_link"
+                  onClick={() => setToggleDropdown(false)}
+                >
+                  My profile
+                </Link>
+              </div>
+            )}
+          </div>
+        ) : (
+          <>
+            {providers &&
+              Object.values(providers).map((provider) => (
+                <button
+                  type="button"
+                  key={provider.name}
+                  onClick={() => signIn(provider.id)}
+                  className="black_btn"
+                >
+                  Sign In
+                </button>
+              ))}
+          </>
+        )}
+      </div>
     </nav>
   );
 };
