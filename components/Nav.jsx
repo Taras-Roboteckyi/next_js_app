@@ -20,7 +20,9 @@ const Nav = () => {
     };
     setProviders(); //Це дозволить увійти за допомогою Google і аунтифікації
   }, []);
+
   console.log(toggleDropdown);
+
   return (
     <nav className="flex-between w-full mb-16 pt-3">
       <Link href="/" className="flex gap-2 flex-center">
@@ -34,7 +36,7 @@ const Nav = () => {
         <p className="logo_text">Promptopia</p>
       </Link>
 
-      {/* Mobile navigation */}
+      {/* Desktop navigation */}
       <div className="sm:flex hidden">
         {isUserLoggedIn ? (
           <div className="flex gap-3 md:gap-5">
@@ -74,7 +76,7 @@ const Nav = () => {
       </div>
 
       {/* Mobile navigation */}
-      <div className="sm:hidden flex: relative">
+      <div className="sm:hidden flex relative">
         {isUserLoggedIn ? (
           <div className="flex">
             <Image
@@ -83,6 +85,7 @@ const Nav = () => {
               width={37}
               height={37}
               className="rounded-full"
+              /* Не працює onClick !!!!!!!!!!!!!! */
               onClick={() => setToggleDropdown((prev) => !prev)}
             />
 
