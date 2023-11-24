@@ -1,6 +1,7 @@
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
 
+//Ховаєм наші дані google cloud сховища в env файлі
 const handler = NextAuth({
   providers: [
     GoogleProvider({
