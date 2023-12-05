@@ -18,7 +18,19 @@ const handler = NextAuth({
       //serverless => lambda => dynamodb
       await connectToDB();
       //тепер треба зробити перевірку чи існує уже користувач
+      const userExists = await User.findOne({
+        email: profile.email,
+      });
+
       // якщо користувач не існує, тоді створити нового користувача та зберегти в базу даних
+
+      if (!userExists) {
+        await User.create({
+          email: profile.email,
+          username: profile.name.replace(" ", "").toLowerCase(),
+          image: profile.picture,
+        });
+      }
       return true;
     } catch (error) {
       console.log(error);
