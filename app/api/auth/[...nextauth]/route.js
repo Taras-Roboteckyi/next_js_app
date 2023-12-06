@@ -12,11 +12,26 @@ const handler = NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
-  async session({ session }) {},
+
+  //Зберігаєм дані користувача і його сесію в app
+  async session({ session }) {
+    const sessionUser = await User.findOne({
+      email: session.user.email,
+    });
+
+    //Тепер оновлюєм його ідентифікатор
+    session.user.id = sessionUser._id.toString();
+
+    return session;
+    //Таким чином оновлюєм користувача, щоб знати який користувач зараз онлайн
+  },
+
+  //Функція яка створює нового користувача
   async signIn({ profile }) {
     try {
       //serverless => lambda => dynamodb
       await connectToDB();
+
       //тепер треба зробити перевірку чи існує уже користувач
       const userExists = await User.findOne({
         email: profile.email,
@@ -31,6 +46,7 @@ const handler = NextAuth({
           image: profile.picture,
         });
       }
+
       return true;
     } catch (error) {
       console.log(error);
