@@ -84,6 +84,7 @@ const Nav = () => {
               height={37}
               className="rounded-full"
               /* Не працює onClick !!!!!!!!!!!!!! */
+              /* Не працює бо не можна ставити onClick на image */
               onClick={() => setToggleDropdown((prev) => !prev)}
             />
 
