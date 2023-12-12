@@ -8,7 +8,7 @@ import { signIn, signOut, useSession, getProviders } from "next-auth/react"; //�
 import Logo from "../public/assets/images/logo.svg";
 
 const Nav = () => {
-  const isUserLoggedIn = true;
+  const { data: session } = useSession();
 
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
@@ -20,6 +20,9 @@ const Nav = () => {
     };
     setProviders(); //Це дозволить увійти за допомогою Google і аунтифікації
   }, []);
+
+  /* Дізнайемось чому не працює session.user */
+  console.log(session?.user); //undefind, тому що ми не зареєстровані
 
   return (
     <nav className="flex-between w-full mb-16 pt-3">
@@ -36,7 +39,7 @@ const Nav = () => {
 
       {/* Desktop navigation */}
       <div className="sm:flex hidden">
-        {isUserLoggedIn ? (
+        {session?.user ? (
           <div className="flex gap-3 md:gap-5">
             <Link href="/create-prompt" className="black_btn">
               Create Post
@@ -75,7 +78,7 @@ const Nav = () => {
 
       {/* Mobile navigation */}
       <div className="sm:hidden flex relative">
-        {isUserLoggedIn ? (
+        {session?.user ? (
           <div className="flex">
             <Image
               src={Logo}
