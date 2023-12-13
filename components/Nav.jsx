@@ -14,15 +14,18 @@ const Nav = () => {
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
   useEffect(() => {
-    const setProviders = async () => {
+    const setUpProviders = async () => {
       const response = await getProviders();
+
       setProviders(response);
     };
-    setProviders(); //Це дозволить увійти за допомогою Google і аунтифікації
+    setUpProviders(); //Це дозволить увійти за допомогою Google і аунтифікації
+    console.log("response", response);
   }, []);
 
-  /* Дізнайемось чому не працює session.user */
-  console.log(session?.user); //undefind, тому що ми не зареєстровані
+  /* Дізнайемось чому не працює session.user та providers*/
+  /* console.log(session?.user); */ //undefined, тому що ми не зареєстровані
+  console.log("providers", providers); //показує null, бо в useEffectі є оголошено дві setProviders
 
   return (
     <nav className="flex-between w-full mb-16 pt-3">
