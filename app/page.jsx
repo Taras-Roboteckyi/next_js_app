@@ -1,14 +1,6 @@
-"use client";
-
 import Feed from "@components/Feed";
 
-import { useState, useEffect } from "react";
-
 const Home = () => {
-  useEffect(() => {
-    console.log("first");
-  }, []);
-
   return (
     <section
       className="w-full flex-center flex-col" /* //w-full - width:100% */

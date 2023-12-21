@@ -14,23 +14,15 @@ const Nav = () => {
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
   useEffect(() => {
-    console.log("first");
-
-    /* const res = getProviders(); //Це дозволить увійти за допомогою Google і аунтифікації
-    setProviders(res);
-    console.log("res", res); */
-  });
-
-  /*  useEffect(() => {
     console.log("test");
     const setUpProviders = async () => {
       const response = await getProviders();
 
       setProviders(response);
+      console.log("response", response);
     };
     setUpProviders(); //Це дозволить увійти за допомогою Google і аунтифікації
-    console.log("response", response);
-  }, []); */
+  }, []);
 
   /* Дізнайемось чому не працює session.user та providers*/
   /* console.log(session?.user); */ //undefined, тому що ми не зареєстровані
