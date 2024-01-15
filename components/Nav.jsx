@@ -8,6 +8,7 @@ import { signIn, signOut, useSession, getProviders } from "next-auth/react"; //�
 import Logo from "../public/assets/images/logo.svg";
 
 const Nav = () => {
+  /* Не переходить в профіль юзера. Помилка 400 в запиті */
   const { data: session } = useSession();
 
   const [providers, setProviders] = useState(null);
