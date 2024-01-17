@@ -8,7 +8,7 @@ import { signIn, signOut, useSession, getProviders } from "next-auth/react"; //�
 import Logo from "../public/assets/images/logo.svg";
 
 const Nav = () => {
-  /* Не переходить в профіль юзера. Помилка 400 в запиті */
+  /* Не переходить в профіль юзера. Помилка 400 в запиті . Google Cloud хоче грошей за реєстрацію*/
   const { data: session } = useSession();
 
   const [providers, setProviders] = useState(null);
@@ -54,7 +54,7 @@ const Nav = () => {
 
             <Link href="/profile">
               <Image
-                src={Logo}
+                src={Logo} /* session?.user.image */
                 alt="profile"
                 width={37}
                 height={37}
@@ -84,7 +84,7 @@ const Nav = () => {
         {session?.user ? (
           <div className="flex">
             <Image
-              src={Logo}
+              src={Logo} /* session?.user.image */
               alt="profile"
               width={37}
               height={37}
