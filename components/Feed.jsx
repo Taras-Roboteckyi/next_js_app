@@ -4,6 +4,11 @@ import { useState, useEffect } from "react";
 
 import PromptCard from "./PromptCard";
 
+//PromptCardList буде використовуватись тільки в цьому компоненті, тому записуєм так
+const PromptCardList = ({ data, handleTagClick }) => {
+  return <div className="mt-16 prompt_layout"></div>;
+};
+
 const Feed = () => {
   const [searchText, setSearchText] = useState("");
 
@@ -21,6 +26,8 @@ const Feed = () => {
           className="search_input peer"
         />
       </form>
+
+      <PromptCardList data={[]} handleTagClick={() => {}} />
     </section>
   );
 };
