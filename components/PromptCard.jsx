@@ -8,7 +8,11 @@ import { usePathname, useRouter } from "next/navigation";
 const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   const [copied, setCopied] = useState("");
 
-  const handleCopy = () => {};
+  const handleCopy = () => {
+    setCopied(post.prompt);
+    navigator.clipboard.writeText(post.prompt);
+    setTimeout(() => setCopied(""), 3000);
+  };
 
   return (
     <div className="prompt_card">
