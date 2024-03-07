@@ -8,7 +8,24 @@ import { useRouter } from "next/navigation";
 
 import Profile from "@components/Profile";
 
-const Profile = () => {
+const MyProfile = () => {
+  const { data: session } = useSession();
+
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      //Отримуємо дані(пости) тільки одного користувача, а не всіх одразу
+
+      const response = await fetch(`/api/users/${session?.user.id}/posts`);
+      const data = await response.json();
+
+      setPosts(data);
+    };
+
+    fetchPosts();
+  }, []);
+
   const handleEdit = () => {};
 
   const handleDelete = async () => {};
@@ -24,4 +41,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default MyProfile;
