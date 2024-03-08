@@ -23,7 +23,7 @@ const MyProfile = () => {
       setPosts(data);
     };
 
-    fetchPosts();
+    if (session?.user.id) fetchPosts(); //Якщо є юзер, тоді робимо запит за даними юзера
   }, []);
 
   const handleEdit = () => {};
@@ -34,7 +34,7 @@ const MyProfile = () => {
     <Profile
       name="My"
       desc="Welcome to your personalized profile page"
-      data={[]}
+      data={posts}
       handleEdit={handleEdit}
       handleDelete={handleDelete}
     />
