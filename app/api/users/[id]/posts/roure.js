@@ -6,8 +6,10 @@ export const GET = async (request, { params }) => {
   try {
     //Підключаємось до бази даних
     await connectToDB();
-    //тепер фільтруєм наші prompts
-    const prompts = await Prompt.find({}).populate("creator");
+    //тепер фільтруєм наші prompts і знаходимо лише коенкретні prompts по id-шнику
+    const prompts = await Prompt.find({ creator: params.id }).populate(
+      "creator"
+    );
     //Повертаєм нову відповідь і статус 200
     return new Response(JSON.stringify(prompts), { status: 200 });
   } catch (error) {
