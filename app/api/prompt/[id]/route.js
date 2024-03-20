@@ -50,3 +50,20 @@ export const PATCH = async (request, { params }) => {
     return new Response("Failed to update prompt", { status: 500 });
   }
 };
+
+///Delete
+
+export const DELETE = async (request, { params }) => {
+  try {
+    //Підключаємось до бази даних
+    await connectToDB();
+
+    //Шукаєм необхідний Prompt по id і видаляєм його
+    await Prompt.findByIdAndRemove(params.id);
+
+    //Повертаєм нову відповідь і статус 200
+    return new Response("Prompt deleted successfully", { status: 200 });
+  } catch (error) {
+    return new Response("Failed to delete prompt", { status: 500 });
+  }
+};
