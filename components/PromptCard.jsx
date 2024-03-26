@@ -61,7 +61,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         {post.prompt}
       </p>
       <p className="font-inter text-sm blue_gradient cursor-pointer">
-        {post.tag}
+        #{post.tag}
       </p>
 
       {/* Ми перевіряєм чи користувач, який увійшов в систему є творцем цієї публікації 
