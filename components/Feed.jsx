@@ -48,7 +48,18 @@ const Feed = () => {
     });
   };
 
-  const handleSearchChange = (e) => {};
+  const handleSearchChange = (e) => {
+    clearTimeout(searchTimeout);
+    setSearchText(e.target.value);
+
+    //debounce method
+    setSearchTimeout(
+      setTimeout(() => {
+        const searchResult = filterPrompts(e.target.value);
+        setSearchedResults(searchResult);
+      }, 500)
+    );
+  };
 
   return (
     <section className="feed">
