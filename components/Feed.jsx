@@ -61,6 +61,10 @@ const Feed = () => {
     );
   };
 
+  const handleTagClick = (targName) => {
+    setSearchText(targName);
+  };
+
   return (
     <section className="feed">
       <form className="relative w-full flex-center">
