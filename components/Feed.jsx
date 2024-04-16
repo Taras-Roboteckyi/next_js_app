@@ -61,8 +61,11 @@ const Feed = () => {
     );
   };
 
-  const handleTagClick = (targName) => {
-    setSearchText(targName);
+  const handleTagClick = (tagName) => {
+    setSearchText(tagName);
+
+    const searchResult = filterPrompts(tagName);
+    setSearchedResults(searchResult);
   };
 
   return (
