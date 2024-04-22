@@ -21,6 +21,8 @@ const UserProfile = ({ params }) => {
 
     if (params?.id) fetchPosts();
   }, [params.id]);
+
+  return <Profile name={userName} />;
 };
 
 export default UserProfile;
