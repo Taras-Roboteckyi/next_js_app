@@ -3,7 +3,7 @@
 
 const nextConfig = {
   basePath: "/promptopia_next_js_app",
-  output: "export", // <=== enables static exports
+
   reactStrictMode: true,
 
   experimental: {
