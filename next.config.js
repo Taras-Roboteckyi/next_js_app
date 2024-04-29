@@ -2,10 +2,6 @@
 /* const nextConfig = {}; */
 
 const nextConfig = {
-  basePath: "/promptopia_next_js_app",
-
-  reactStrictMode: true,
-
   experimental: {
     appDir: true,
     serverComponentsExternalPackages: ["mongoose"],
