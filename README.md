@@ -7,3 +7,5 @@
 [] Implement Click on tag
 
 [] Implement View other profile
+
+[] Deployed page in Vercel
