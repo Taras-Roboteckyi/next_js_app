@@ -9,3 +9,7 @@
 [] Implement View other profile
 
 [] Deployed page in Vercel
+
+[] Database - MongoDB
+
+[] Authentication - Google Cloud
