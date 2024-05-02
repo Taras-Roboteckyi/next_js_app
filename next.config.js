@@ -2,6 +2,10 @@
 /* const nextConfig = {}; */
 
 const nextConfig = {
+  basePath: "/promptopia_next_js_app",
+  output: "export",
+  reactStrictMode: true,
+
   experimental: {
     appDir: true,
     serverComponentsExternalPackages: ["mongoose"],
