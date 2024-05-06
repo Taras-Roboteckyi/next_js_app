@@ -13,3 +13,5 @@
 [] Database - MongoDB
 
 [] Authentication - Google Cloud
+
+Changed env file for Github
