@@ -2,9 +2,9 @@
 /* const nextConfig = {}; */
 
 const nextConfig = {
-  basePath: "/promptopia_next_js_app",
+  /* basePath: "/promptopia_next_js_app",
   output: "export",
-  reactStrictMode: true,
+  reactStrictMode: true, */
 
   experimental: {
     appDir: true,
